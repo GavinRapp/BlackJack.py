@@ -17,16 +17,17 @@ def dealCard(turn):
 # calculate the total of each hand 
 def total(turn):
     total = 0
-    face = ['J, 'K', 'Q']
+    face = ['A', 'J', 'K', 'Q']
     for card in turn:
         if card in range(1, 11):
             total += card
-            elif card in face:
+        elif card in face:
                 total += 10
-            else:
-                if total > 11:
-                    total += 1
-                else: += 11
+        else:
+            if total > 11:
+                total += 1
+                else:
+                total += 11
         return total
 
 
@@ -41,10 +42,10 @@ def revealDealerHand():
 for _ in range(2):
     dealCard(dealerHand)
     dealCard(playerHand)
-
+#reveal dealer card, show player
 while playerIn or dealerIn:
     print(f"Dealer had {revealDealerHand()} and X")
-    print(f"You have {revealPlayerHand} for a total of {total(playerHand)}")
+    print(f"You have {playerHand} for a total of {total(playerHand)}")
     #does player want to hit, call, or fold?
     if playerIn:
         stayorHit= input("1: Stay \n2: Hit \n: ")
